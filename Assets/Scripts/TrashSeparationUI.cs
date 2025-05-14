@@ -27,15 +27,15 @@ public class TrashSeparationUI : MonoBehaviour
 
     void ShowNextTrash()
     {
-        if (currentIndex >= GameManager.Instance.collectedTrash.Count)
+        if (currentIndex >= GameManager.collectedTrash.Count)
         {
             trashNameText.text = "¡Clasificación completada!";
             trashIcon.gameObject.SetActive(false);
-            GameManager.Instance.ClearTrash();
+            GameManager.ClearTrash();
             return;
         }
 
-        currentTrash = GameManager.Instance.collectedTrash[currentIndex];
+        currentTrash = GameManager.collectedTrash[currentIndex];
         trashNameText.text = currentTrash.trashName;
         trashIcon.sprite = currentTrash.trashIcon;
         trashIcon.gameObject.SetActive(true);
@@ -54,7 +54,7 @@ public class TrashSeparationUI : MonoBehaviour
     {
         if (selected == currentTrash.category)
         {
-            GameManager.Instance.AddScore(10);
+            GameManager.AddScore(10);
         }
 
         currentIndex++;

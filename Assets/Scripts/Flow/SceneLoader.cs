@@ -2,21 +2,14 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using Cinemachine;
 
 public class SceneLoader : MonoBehaviour
 {
     public static SceneLoader Instance;
 
-    [Header("Cámaras")]
-    public Camera mainCamera;
-    public CinemachineVirtualCamera virtualCamera;
-
     [Header("Pantalla de carga")]
     public GameObject loadingScreen;
     public Slider progressBar;
-
-    private string spawnPointName = "DefaultSpawn";
 
     private void Awake()
     {
@@ -32,9 +25,8 @@ public class SceneLoader : MonoBehaviour
             loadingScreen.SetActive(false);
     }
 
-    public void LoadSceneAsync(string sceneName, string spawnPoint = "DefaultSpawn")
+    public void LoadSceneAsync(string sceneName)
     {
-        spawnPointName = spawnPoint;
         StartCoroutine(LoadSceneCoroutine(sceneName));
     }
 
@@ -42,10 +34,6 @@ public class SceneLoader : MonoBehaviour
     {
         // Mostrar pantalla de carga
         if (loadingScreen != null) loadingScreen.SetActive(true);
-
-        // Desactivar cámaras antes de cargar
-        if (mainCamera != null) mainCamera.gameObject.SetActive(false);
-        if (virtualCamera != null) virtualCamera.gameObject.SetActive(false);
 
         // Cargar escena asíncrona
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
@@ -65,40 +53,16 @@ public class SceneLoader : MonoBehaviour
             yield return null;
         }
 
-        // Esperar 1 frame para que la escena se estabilice
+        // Esperar 1 frame para estabilizar escena
         yield return null;
 
-        // Teletransportar
-        SpawnPlayerAtPoint();
-
-        // Activar cámaras de nuevo
-        if (mainCamera != null) mainCamera.gameObject.SetActive(true);
-        if (virtualCamera != null) virtualCamera.gameObject.SetActive(true);
-
-        // Ocultar loading
+        // Ocultar pantalla de carga
         if (loadingScreen != null) loadingScreen.SetActive(false);
     }
 
-    private void SpawnPlayerAtPoint()
-    {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (player == null) return;
-
-        GameObject spawnPoint = GameObject.Find(spawnPointName);
-        if (spawnPoint == null) return;
-
-        player.transform.position = spawnPoint.transform.position;
-        player.transform.rotation = spawnPoint.transform.rotation;
-    }
-    
     public void ReturnToLobby()
     {
-        // Opcional: podés resetear el nivel de contaminación si querés
-        if (GameManager.Instance != null)
-        {
-            GameManager.Instance.SetContamination(0); // o el valor que tenga el lobby
-        }
-
-        LoadSceneAsync("Lobby", "Lobby_Spawn");
+        GameManager.SetContamination(0); // o el valor que necesites reiniciar
+        LoadSceneAsync("Lobby");
     }
 }

@@ -54,19 +54,21 @@ public class InteractableTrigger : MonoBehaviour
 
     private void Update()
     {
-        // Si el jugador está dentro del trigger y presiona la tecla
         if (isPlayerInRange && Input.GetKeyDown(interactionKey))
         {
             onInteract.Invoke();
         }
 
-        // Si el UI está activo, hacer que mire hacia la cámara
         if (interactionUI != null && interactionUI.activeSelf && mainCamera != null)
         {
-            // Este enfoque rota el UI para mirar hacia la cámara, pero evita que se voltee
-            interactionUI.transform.rotation = Quaternion.LookRotation(
-                interactionUI.transform.position - mainCamera.transform.position
-            );
+            // Offset hacia la cámara
+            Vector3 offset = -mainCamera.transform.forward * 2f;
+            interactionUI.transform.position = transform.position + offset;
+
+            // Rotar hacia la cámara
+            interactionUI.transform.LookAt(mainCamera.transform);
+            interactionUI.transform.Rotate(0, 180f, 0);
         }
     }
+
 }

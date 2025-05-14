@@ -6,10 +6,9 @@ public class TrashItem : MonoBehaviour
 
     public void Collect()
     {
-        if (GameManager.Instance != null)
-        {
-            GameManager.Instance.AddTrash(trashInfo);  
-        }
+        
+        GameManager.AddTrash(trashInfo);  
+        
         Destroy(gameObject);
     }
 }

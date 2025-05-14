@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -9,10 +8,10 @@ public class MapData
 {
     public string mapName; // Nombre visible (opcional para UI)
     public string sceneName;
-    public string spawnPointName;
     [Range(0, 100)]
     public float contaminationLevel;
 }
+
 public class MapSelector : MonoBehaviour
 {
     [Header("UI del menú de selección de mapa")]
@@ -27,13 +26,14 @@ public class MapSelector : MonoBehaviour
 
     [Header("Textos de contaminación por mapa")]
     public TextMeshProUGUI[] mapContaminationTexts; 
+
     private void Start()
     {
         mapSelectionMenu.SetActive(false);
 
         for (int i = 0; i < maps.Length && i < mapButtons.Length; i++)
         {
-            int index = i; // Necesario para capturar correctamente en closures
+            int index = i; 
             mapButtons[i].onClick.AddListener(() => LoadMap(maps[index]));
         }
         
@@ -63,12 +63,9 @@ public class MapSelector : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        if (GameManager.Instance != null)
-        {
-            GameManager.Instance.SetContamination(data.contaminationLevel);
-        }
+        GameManager.SetContamination(data.contaminationLevel);
 
-        SceneLoader.Instance.LoadSceneAsync(data.sceneName, data.spawnPointName);
+        SceneLoader.Instance.LoadSceneAsync(data.sceneName); 
     }
 
     public void CloseMenu()

@@ -1,50 +1,29 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public static class GameManager
 {
-    public static GameManager Instance;
-
-    [Range(0, 100)]
-    private float contaminationLevel = 0f;
+    private static float contaminationLevel = 0f;
+    public static List<TrashDataSO> collectedTrash = new List<TrashDataSO>();
+    public static int playerScore = 0;
     
-    public List<TrashDataSO> collectedTrash = new List<TrashDataSO>();
-    public int playerScore = 0;
+    public static event Action<int> OnScoreChanged;
 
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-    }
-
-    public void SetContamination(float value)
+    public static void SetContamination(float value)
     {
         contaminationLevel = Mathf.Clamp(value, 0f, 100f);
     }
 
-    public float GetContamination()
-    {
-        return contaminationLevel;
-    }
-    
-    public void AddTrash(TrashDataSO trash)
-    {
-        collectedTrash.Add(trash);
-    }
+    public static float GetContamination() => contaminationLevel;
 
-    public void AddScore(int amount)
+    public static void AddTrash(TrashDataSO trash) => collectedTrash.Add(trash);
+
+    public static void AddScore(int amount)
     {
         playerScore += amount;
+        OnScoreChanged?.Invoke(playerScore);
     }
 
-    public void ClearTrash()
-    {
-        collectedTrash.Clear();
-    }
+    public static void ClearTrash() => collectedTrash.Clear();
 }

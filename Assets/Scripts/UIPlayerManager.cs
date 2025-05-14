@@ -1,18 +1,35 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UIPlayerManager : MonoBehaviour
 {
-    public Slider contaminationSlider;
+    public TextMeshProUGUI scoreText;
 
-    private void Update()
+    private void Start()
     {
-        if (GameManager.Instance == null) return;
+        UpdateScoreUI();
+    }
 
-        float currentContamination = GameManager.Instance.GetContamination();
+    private void OnEnable()
+    {
+        GameManager.OnScoreChanged += UpdateScoreUI;
+    }
 
-        if (contaminationSlider != null)
-            contaminationSlider.value = currentContamination;
-        
+    private void OnDisable()
+    {
+        GameManager.OnScoreChanged -= UpdateScoreUI;
+    }
+
+    public void UpdateScoreUI(int newScore)
+    {
+        if (scoreText != null)
+            scoreText.text = $"Puntaje: {newScore}";
+    }
+
+    public void UpdateScoreUI()
+    {
+        if (scoreText != null)
+            scoreText.text = $"Puntaje: {GameManager.playerScore}";
     }
 }

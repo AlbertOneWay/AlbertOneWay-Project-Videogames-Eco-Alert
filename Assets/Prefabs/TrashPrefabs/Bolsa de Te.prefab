@@ -1,5 +1,67 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2834926696981048329
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3282591210984317560}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: ea0c7590616378c43bc50a1c7ba93003, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ea0c7590616378c43bc50a1c7ba93003, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ea0c7590616378c43bc50a1c7ba93003, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ea0c7590616378c43bc50a1c7ba93003, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ea0c7590616378c43bc50a1c7ba93003, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ea0c7590616378c43bc50a1c7ba93003, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ea0c7590616378c43bc50a1c7ba93003, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ea0c7590616378c43bc50a1c7ba93003, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ea0c7590616378c43bc50a1c7ba93003, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ea0c7590616378c43bc50a1c7ba93003, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ea0c7590616378c43bc50a1c7ba93003, type: 3}
+      propertyPath: m_Name
+      value: dim-sum
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ea0c7590616378c43bc50a1c7ba93003, type: 3}
+--- !u!4 &2368075036355382242 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ea0c7590616378c43bc50a1c7ba93003, type: 3}
+  m_PrefabInstance: {fileID: 2834926696981048329}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5418604253806031461
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10,8 +72,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 712956699030114236, guid: 84c57557a119e164cb8902aae57d0359, type: 3}
       propertyPath: m_Name
-      value: TrashItem Variant
+      value: Bolsa de Te
       objectReference: {fileID: 0}
+    - target: {fileID: 1211460310831676157, guid: 84c57557a119e164cb8902aae57d0359, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3545885406268701512, guid: 84c57557a119e164cb8902aae57d0359, type: 3}
+      propertyPath: trashInfo
+      value: 
+      objectReference: {fileID: 11400000, guid: dda0ce90e594ac244a497673d81c6a34, type: 2}
     - target: {fileID: 7402972811361079325, guid: 84c57557a119e164cb8902aae57d0359, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.117482
@@ -54,6 +124,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7402972811361079325, guid: 84c57557a119e164cb8902aae57d0359, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 2368075036355382242}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84c57557a119e164cb8902aae57d0359, type: 3}
+--- !u!4 &3282591210984317560 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7402972811361079325, guid: 84c57557a119e164cb8902aae57d0359, type: 3}
+  m_PrefabInstance: {fileID: 5418604253806031461}
+  m_PrefabAsset: {fileID: 0}
