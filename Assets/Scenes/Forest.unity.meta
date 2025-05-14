@@ -1,7 +1,14 @@
 fileFormatVersion: 2
-guid: aeeb6b58cc061aa4da533a05e0c70e71
+guid: 809378b58c9050d4db4c1647329d076e
 DefaultImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 168396
+  packageName: 'Environment Pack: Free Forest Sample'
+  packageVersion: 2.0.1
+  assetPath: Assets/Supercyan Free Forest Sample/Scenes/BrightDay.unity
+  uploadId: 697266
