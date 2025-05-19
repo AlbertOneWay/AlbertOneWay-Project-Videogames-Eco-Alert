@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: soda-bottle
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1ca01d3850b872f4ab1b49f4fefabc36, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -74,6 +78,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Botella Plastica
       objectReference: {fileID: 0}
+    - target: {fileID: 712956699030114236, guid: 84c57557a119e164cb8902aae57d0359, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1211460310831676157, guid: 84c57557a119e164cb8902aae57d0359, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -84,15 +92,15 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 14028d9d5211bde4db40c285708b7506, type: 2}
     - target: {fileID: 7402972811361079325, guid: 84c57557a119e164cb8902aae57d0359, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.117482
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7402972811361079325, guid: 84c57557a119e164cb8902aae57d0359, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.49
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7402972811361079325, guid: 84c57557a119e164cb8902aae57d0359, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -14.491164
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7402972811361079325, guid: 84c57557a119e164cb8902aae57d0359, type: 3}
       propertyPath: m_LocalRotation.w
@@ -123,15 +131,76 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1211460310831676157, guid: 84c57557a119e164cb8902aae57d0359, type: 3}
+    - {fileID: 5639078839473580065, guid: 84c57557a119e164cb8902aae57d0359, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7402972811361079325, guid: 84c57557a119e164cb8902aae57d0359, type: 3}
-      insertIndex: 1
+      insertIndex: -1
       addedObject: {fileID: 2334180802422585608}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 712956699030114236, guid: 84c57557a119e164cb8902aae57d0359, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4951097222911738303}
+    - targetCorrespondingSourceObject: {fileID: 712956699030114236, guid: 84c57557a119e164cb8902aae57d0359, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4898201110225606384}
   m_SourcePrefab: {fileID: 100100000, guid: 84c57557a119e164cb8902aae57d0359, type: 3}
 --- !u!4 &3282591210984317560 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7402972811361079325, guid: 84c57557a119e164cb8902aae57d0359, type: 3}
   m_PrefabInstance: {fileID: 5418604253806031461}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4816126510025653721 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 712956699030114236, guid: 84c57557a119e164cb8902aae57d0359, type: 3}
+  m_PrefabInstance: {fileID: 5418604253806031461}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &4951097222911738303
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4816126510025653721}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.30526996, y: 0.60674125, z: 0.30527}
+  m_Center: {x: 0, y: 0.30073562, z: 0}
+--- !u!54 &4898201110225606384
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4816126510025653721}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

@@ -30,6 +30,10 @@ public class TrashSortingMinigame : MonoBehaviour
     
     private List<TrashDataSO> trashList;
     private GameObject currentTrashInstance;
+    
+    [Header("UI Feedback")]
+    public GameObject floatingPointsPrefab;
+    public Transform floatingCanvasParent;
 
     private void Awake()
     {
@@ -90,17 +94,15 @@ public class TrashSortingMinigame : MonoBehaviour
     {
         if (trash.category == dropZone)
         {
-            Debug.Log($"✅ Correcto: {trash.trashName}");
             GameManager.AddScore(10);
-            GameManager.collectedTrash.Remove(trash); // ✅ Eliminar de la lista
-
+            ShowFloatingPoints(10); // ✅ Animación positiva
+            GameManager.collectedTrash.Remove(trash);
             StartCoroutine(NextTrashWithDelay(0.3f));
         }
         else
         {
-            Debug.Log($"❌ Incorrecto: {trash.trashName} (esperado: {trash.category})");
             GameManager.AddScore(-10);
-            // no se elimina, se reintenta
+            ShowFloatingPoints(-10); // ❌ Animación negativa
         }
     }
 
@@ -119,5 +121,14 @@ public class TrashSortingMinigame : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         SceneLoader.Instance.LoadSceneAsync("Lobby");
+    }
+    
+    public void ShowFloatingPoints(int amount)
+    {
+        GameObject go = Instantiate(floatingPointsPrefab, floatingCanvasParent);
+        go.transform.localPosition = Vector3.zero;
+
+        FloatingPoints feedback = go.GetComponent<FloatingPoints>();
+        feedback.Initialize(amount);
     }
 }

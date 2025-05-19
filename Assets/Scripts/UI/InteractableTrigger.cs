@@ -62,7 +62,7 @@ public class InteractableTrigger : MonoBehaviour
         if (interactionUI != null && interactionUI.activeSelf && mainCamera != null)
         {
             // Offset hacia la cámara
-            Vector3 offset = -mainCamera.transform.forward * 2f;
+            Vector3 offset = -mainCamera.transform.forward * 1f;
             interactionUI.transform.position = transform.position + offset;
 
             // Rotar hacia la cámara

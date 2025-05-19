@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d5cb1d75967c9346b5dbab611ca5f0e, type: 3}
+  m_Name: OutfitLibrary
+  m_EditorClassIdentifier: 
+  outfits:
+  - slotKey: Accessories
+    meshName: Clown_nose_001
+    mesh: {fileID: 7061910613977320673, guid: 9ca093b63b32bc6479e8706c849e1ee2, type: 3}
+  - slotKey: Accessories
+    meshName: Headphones_002
+    mesh: {fileID: 2609398250338908505, guid: 106c56f4b86971e4393de6fb97ee6cdb, type: 3}
+  - slotKey: Mustache
+    meshName: Mustache_003
+    mesh: {fileID: -3811569408259832331, guid: 7f08cab61f953cd4693ac58a98b96079, type: 3}
+  - slotKey: Mustache
+    meshName: Mustache_011
+    mesh: {fileID: 2912484300477787147, guid: b4d34f152c73703499b03a8b9beab646, type: 3}
+  - slotKey: Accessories
+    meshName: Pacifier_001
+    mesh: {fileID: -7842831479439361333, guid: da1fb7324b7aa04488964cec50dec732, type: 3}
+  - slotKey: Faces
+    meshName: Male_emotion_angry_003
+    mesh: {fileID: -8518051590879840720, guid: e2a9edf3127d00246a60fb52ef4856b9, type: 3}
+  - slotKey: Faces
+    meshName: Male_emotion_happy_002
+    mesh: {fileID: -4389200089894859703, guid: e4f543c638ecbfd40b8dc37cd298e48a, type: 3}
+  - slotKey: Faces
+    meshName: Male_emotion_usual_001
+    mesh: {fileID: -7927354642031663450, guid: 819bbc3929ae14e43b0d8405d65589f9, type: 3}
+  - slotKey: Glasses
+    meshName: Glasses_004
+    mesh: {fileID: 3231055992845446417, guid: 37ecfcaf8ce0c064d92bcec65eba3e31, type: 3}
+  - slotKey: Glasses
+    meshName: Glasses_006
+    mesh: {fileID: 4124652187440467762, guid: 8ce1c24b95f214d4bb53ebe8be080a49, type: 3}
+  - slotKey: Gloves
+    meshName: Gloves_006
+    mesh: {fileID: 4388357067006938284, guid: ed3cc8f7b4705704db2e46eff03dd968, type: 3}
+  - slotKey: Gloves
+    meshName: Gloves_014
+    mesh: {fileID: -2628522999209309539, guid: 47ba93e4fb1b05e418fa1918bf34ed85, type: 3}
+  - slotKey: Hairstyle
+    meshName: Hairstyle_Male_001
+    mesh: {fileID: -8820499275058686143, guid: c00be380054f3aa469720cb9cd40ef14, type: 3}
+  - slotKey: Hairstyle
+    meshName: Hairstyle_Male_005
+    mesh: {fileID: 2589799688786906243, guid: 634df7d5a6da6804f95f30ed030ec528, type: 3}
+  - slotKey: Hat
+    meshName: Hat_010
+    mesh: {fileID: -25535521549600216, guid: c8ef145d788d0804f9e31c8079352c06, type: 3}
+  - slotKey: Outerwear
+    meshName: Outwear_004
+    mesh: {fileID: 1617087265200637012, guid: e79b799a85000cd4ea6d2332153cbd7b, type: 3}
+  - slotKey: Outerwear
+    meshName: Outwear_043
+    mesh: {fileID: -3950228387462889971, guid: d0367ce8ac8ac514a9278f7eb0ed66ac, type: 3}
+  - slotKey: Outerwear
+    meshName: Outwear_050
+    mesh: {fileID: 9053217031431064551, guid: 5a531847cd74a654b97ef249cb9306d5, type: 3}
+  - slotKey: Pants
+    meshName: Pants_009
+    mesh: {fileID: -987022824948863293, guid: 0f24f9714abd24a4596c28822aaa7a39, type: 3}
+  - slotKey: Pants
+    meshName: Pants_010
+    mesh: {fileID: -4396149814923931179, guid: 67dfe8b1e1ed9b34c985396c6282c820, type: 3}
+  - slotKey: Shoes
+    meshName: Shoe_Slippers_002
+    mesh: {fileID: -1419061772662269867, guid: 20384ecd8466c804eb14b502b62acc3b, type: 3}
+  - slotKey: Shoes
+    meshName: Shoe_Slippers_005
+    mesh: {fileID: -5648626978545720014, guid: bfab5a5ca14002a469bd5912e025f274, type: 3}
+  - slotKey: Shoes
+    meshName: Shoe_Sneakers_009
+    mesh: {fileID: 2990419855401034948, guid: 0fc9184e885899c408b2467848981766, type: 3}

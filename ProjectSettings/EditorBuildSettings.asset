@@ -15,11 +15,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Beach.unity
     guid: c3d80d7eb1f85c045a678537a7bfe173
   - enabled: 1
-    path: Assets/Scenes/City_Deprecated.unity
-    guid: 86d69dff11874554dab3acd346a25392
+    path: Assets/Scenes/City.unity
+    guid: 7c8efe2847261ea438d19edb22607a00
   - enabled: 1
     path: Assets/Scenes/Forest.unity
-    guid: aeeb6b58cc061aa4da533a05e0c70e71
+    guid: 809378b58c9050d4db4c1647329d076e
   - enabled: 1
     path: Assets/Scenes/TrashSortingMinigame.unity
     guid: 6f1d3783c02c2f24bbf03341788a9a81

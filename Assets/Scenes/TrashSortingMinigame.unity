@@ -1099,6 +1099,8 @@ MonoBehaviour:
   resultPanel: {fileID: 169904844}
   resultText: {fileID: 1647893796}
   returnLobby: {fileID: 563826122}
+  floatingPointsPrefab: {fileID: 1567626391000462037, guid: 9fe6e1c159204344693ad6f6d0097aa1, type: 3}
+  floatingCanvasParent: {fileID: 687871764}
 --- !u!4 &1455956952
 Transform:
   m_ObjectHideFlags: 0

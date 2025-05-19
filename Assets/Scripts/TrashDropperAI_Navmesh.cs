@@ -3,22 +3,28 @@ using UnityEngine.AI;
 
 public class TrashDropperAI_Navmesh : MonoBehaviour
 {
+    [Header("Basura")]
+    public GameObject[] trashPrefabs; // Prefabs disponibles
     public float trashDropInterval = 1.5f;
-    public GameObject trashPrefab;
+
+    [Header("Patrullaje")]
     public Transform[] patrolPoints;
-    public int hitsToEscape = 2;
+
+    [Header("Escape")]
+    public float timeToEscape = 10f; // Tiempo antes de desaparecer automáticamente
 
     private NavMeshAgent agent;
-    private float dropTimer = 0f;
-    private int hitsReceived = 0;
-    private int currentPoint = -1;
     private Animator animator;
+    private float dropTimer = 0f;
+    private int currentPoint = -1;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         GoToNextPoint();
+
+        StartCoroutine(EscapeAfterDelay()); // Inicia autodestrucción
     }
 
     void Update()
@@ -27,25 +33,43 @@ public class TrashDropperAI_Navmesh : MonoBehaviour
         if (dropTimer >= trashDropInterval)
         {
             dropTimer = 0f;
-            Instantiate(trashPrefab, transform.position, Quaternion.identity);
+            DropRandomTrash();
         }
 
-        // Si llegó al destino, va al siguiente punto aleatorio
+        // Avanzar si llegó al destino
         if (!agent.pathPending && agent.remainingDistance < 0.5f)
         {
             GoToNextPoint();
         }
-        
-        // Animación basada en dirección local de la velocidad
+
+        // Animación según dirección local de movimiento
         if (animator != null && agent != null)
         {
             Vector3 velocity = agent.velocity;
             Vector3 localVelocity = transform.InverseTransformDirection(velocity);
-            float hor = localVelocity.x;
-            float vert = localVelocity.z;
+            animator.SetFloat("Hor", localVelocity.x);
+            animator.SetFloat("Vert", localVelocity.z);
+        }
+    }
 
-            animator.SetFloat("Hor", hor);
-            animator.SetFloat("Vert", vert);
+    void DropRandomTrash()
+    {
+        if (trashPrefabs.Length == 0)
+        {
+            Debug.LogWarning("❌ No hay prefabs de basura asignados al NPC.");
+            return;
+        }
+
+        int index = Random.Range(0, trashPrefabs.Length);
+        GameObject prefab = trashPrefabs[index];
+
+        if (prefab != null)
+        {
+            Instantiate(prefab, transform.position, Quaternion.identity);
+        }
+        else
+        {
+            Debug.LogWarning($"⚠️ Prefab vacío en posición {index}.");
         }
     }
 
@@ -63,13 +87,10 @@ public class TrashDropperAI_Navmesh : MonoBehaviour
         agent.SetDestination(patrolPoints[currentPoint].position);
     }
 
-    public void TakeHit()
+    private System.Collections.IEnumerator EscapeAfterDelay()
     {
-        hitsReceived++;
-        if (hitsReceived >= hitsToEscape)
-        {
-            Debug.Log("NPC escapó tras ser golpeado");
-            Destroy(gameObject);
-        }
+        yield return new WaitForSeconds(timeToEscape);
+        Debug.Log("🕒 El NPC desaparece automáticamente tras " + timeToEscape + " segundos.");
+        Destroy(gameObject);
     }
 }
