@@ -23,7 +23,8 @@ public class TrashDropperAI_Navmesh : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         GoToNextPoint();
-
+        AudioManager.Instance.PlayMusic(MusicType.Enemy);
+        
         StartCoroutine(EscapeAfterDelay()); // Inicia autodestrucción
     }
 
@@ -92,5 +93,6 @@ public class TrashDropperAI_Navmesh : MonoBehaviour
         yield return new WaitForSeconds(timeToEscape);
         Debug.Log("🕒 El NPC desaparece automáticamente tras " + timeToEscape + " segundos.");
         Destroy(gameObject);
+        AudioManager.Instance.PlayRandomCalmMusic();
     }
 }

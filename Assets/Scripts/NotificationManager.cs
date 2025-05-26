@@ -29,6 +29,7 @@ public class NotificationManager : MonoBehaviour
     public void ShowMessage(string message, NotificationType type = NotificationType.Info)
     {
         GameObject go = Instantiate(notificationPrefab, notificationParent);
+        AudioManager.Instance.PlayUI(UISFXType.Notification);
         go.transform.SetAsLastSibling();
 
         TextMeshProUGUI text = go.GetComponentInChildren<TextMeshProUGUI>();

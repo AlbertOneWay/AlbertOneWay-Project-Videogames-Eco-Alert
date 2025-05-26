@@ -3,6 +3,14 @@ using VolumetricLines;
 
 public class TrashCollector : MonoBehaviour
 {
+    private AudioSource beamAudioSource;
+    
+    [Header("🔊 Sonido del rayo de succión")]
+    public AudioClip beamSound;
+    
+    [Header("🔊 Sonido al recolectar basura")]
+    public AudioClip collectSound;
+    
     [Header("Layer de la basura")]
     public LayerMask trashLayer;
 
@@ -37,6 +45,9 @@ public class TrashCollector : MonoBehaviour
     {
         if (heldTrash == destroyed)
         {
+            
+            if (collectSound != null)
+                AudioManager.Instance.PlaySFX2D(collectSound);
             CleanupHeldTrash(); // ¡limpia bien si desaparece fuera del script!
         }
     }
@@ -64,6 +75,8 @@ public class TrashCollector : MonoBehaviour
 
                         currentBeam = Instantiate(beamPrefab);
                         beamLine = currentBeam.GetComponent<VolumetricLineBehavior>();
+                        
+                        beamAudioSource = AudioManager.Instance.PlayLoopingSFX(beamSound, "BeamAudio");
                     }
                 }
             }
@@ -101,6 +114,13 @@ public class TrashCollector : MonoBehaviour
 
     private void CleanupHeldTrash()
     {
+        
+        if (beamAudioSource != null)
+        {
+            AudioManager.Instance.StopAndDestroy(beamAudioSource);
+            beamAudioSource = null;
+        }
+        
         heldTrash = null;
         heldRb = null;
 

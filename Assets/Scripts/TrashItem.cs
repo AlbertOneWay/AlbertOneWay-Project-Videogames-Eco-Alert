@@ -3,6 +3,7 @@ using System;
 
 public class TrashItem : MonoBehaviour
 {
+    
     public TrashDataSO trashInfo;
 
     public static event Action<TrashItem> OnTrashDestroyed;

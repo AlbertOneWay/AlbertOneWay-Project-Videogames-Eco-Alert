@@ -59,6 +59,7 @@ public class MapSelector : MonoBehaviour
 
     public void LoadMap(MapData data)
     {
+        AudioManager.Instance.PlayUI(UISFXType.Click);
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -70,6 +71,7 @@ public class MapSelector : MonoBehaviour
 
     public void CloseMenu()
     {
+        AudioManager.Instance.PlayUI(UISFXType.Click);
         mapSelectionMenu.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

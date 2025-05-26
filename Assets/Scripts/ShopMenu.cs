@@ -51,13 +51,23 @@ public class ShopMenu : MonoBehaviour
 
     public void CloseShop()
     {
+        AudioManager.Instance.PlayUI(UISFXType.Click);
         shopCanvas.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
-    public void ShowUpgrades() => PopulateItems(upgradeItems, isOutfit: false);
-    public void ShowOutfits() => PopulateItems(outfitItems, isOutfit: true);
+    public void ShowUpgrades()
+    {
+        AudioManager.Instance.PlayUI(UISFXType.Click);
+        PopulateItems(upgradeItems, isOutfit: false);
+    }
+
+    public void ShowOutfits()
+    {
+        AudioManager.Instance.PlayUI(UISFXType.Click);
+        PopulateItems(outfitItems, isOutfit: true);
+    }
 
     private void PopulateItems(ShopItem[] items, bool isOutfit)
     {
@@ -92,6 +102,7 @@ public class ShopMenu : MonoBehaviour
                 {
                     if (GameManager.playerScore >= item.cost)
                     {
+                        AudioManager.Instance.PlayUI(UISFXType.Cash);
                         GameManager.AddScore(-item.cost);
 
                         if (isOutfit)
@@ -116,6 +127,7 @@ public class ShopMenu : MonoBehaviour
                     }
                     else
                     {
+                        AudioManager.Instance.PlayUI(UISFXType.Click);
                         NotificationManager.Instance.ShowMessage("No tienes puntos suficientes", NotificationManager.NotificationType.Error);
                     }
                 });

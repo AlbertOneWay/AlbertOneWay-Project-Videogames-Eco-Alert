@@ -580,6 +580,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 251abc5413879de47ab8cc2342cefb82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  beamSound: {fileID: 8300000, guid: 63f0efd4718442b48b04491f0fccc1c2, type: 3}
+  collectSound: {fileID: 8300000, guid: dfca7b4ac2d974047840d40369dcc921, type: 3}
   trashLayer:
     serializedVersion: 2
     m_Bits: 128

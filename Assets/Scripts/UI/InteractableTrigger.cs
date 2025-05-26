@@ -56,6 +56,7 @@ public class InteractableTrigger : MonoBehaviour
     {
         if (isPlayerInRange && Input.GetKeyDown(interactionKey))
         {
+            AudioManager.Instance.PlayUI(UISFXType.Click);
             onInteract.Invoke();
         }
 

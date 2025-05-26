@@ -1090,6 +1090,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51d290dbba8014a409be304b25380462, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  correctSound: {fileID: 8300000, guid: ee2071c6c91950a449bbd83229936abe, type: 3}
+  wrongSound: {fileID: 8300000, guid: aad348f70fff5f4469fdbd52b1369608, type: 3}
   spawnPoint: {fileID: 381545378}
   trashSpritePrefab: {fileID: 671819231090099110, guid: e9833f12b0a672a4d8a177a0bee585de, type: 3}
   zoneAprovechables: {fileID: 1810151037}

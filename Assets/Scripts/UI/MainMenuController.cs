@@ -8,6 +8,8 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private Button botonJugar;
     [SerializeField] private Button botonOpciones;
     [SerializeField] private Button botonCreditos;
+    public GameObject PanelCredits;
+    [SerializeField] private Button botonCloseCreditos;
 
     private void Start()
     {
@@ -15,6 +17,8 @@ public class MainMenuController : MonoBehaviour
         botonJugar.onClick.AddListener(IrAJugar);
         botonOpciones.onClick.AddListener(IrAOpciones);
         botonCreditos.onClick.AddListener(IrACreditos);
+        botonCloseCreditos.onClick.AddListener(CerrarCreditos);
+        PanelCredits.SetActive(false);
     }
 
     /// <summary>
@@ -25,6 +29,7 @@ public class MainMenuController : MonoBehaviour
     {
         // Reemplaza "EscenaJuego" por el nombre real de la escena de tu juego
         SceneManager.LoadScene("Lobby");
+        AudioManager.Instance.PlayUI(UISFXType.Click);
     }
 
     /// <summary>
@@ -35,6 +40,7 @@ public class MainMenuController : MonoBehaviour
     {
         // Reemplaza "EscenaOpciones" por la escena o implementa un panel UI
         SceneManager.LoadScene("EscenaOpciones");
+        AudioManager.Instance.PlayUI(UISFXType.Click);
     }
 
     /// <summary>
@@ -44,6 +50,13 @@ public class MainMenuController : MonoBehaviour
     private void IrACreditos()
     {
         // Reemplaza "EscenaCreditos" por la escena de créditos
-        SceneManager.LoadScene("EscenaCreditos");
+        PanelCredits.SetActive(true);
+        AudioManager.Instance.PlayUI(UISFXType.Click);
+    }
+
+    private void CerrarCreditos()
+    {
+        AudioManager.Instance.PlayUI(UISFXType.Click);
+        PanelCredits.SetActive(false);
     }
 }

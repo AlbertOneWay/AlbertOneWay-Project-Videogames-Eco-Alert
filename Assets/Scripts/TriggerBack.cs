@@ -32,6 +32,7 @@ public class TriggerBack : MonoBehaviour
 
     public void BackToLobby()
     {
+        AudioManager.Instance.PlayUI(UISFXType.Click);
         SceneLoader.Instance.ReturnToLobby();
     }
 }

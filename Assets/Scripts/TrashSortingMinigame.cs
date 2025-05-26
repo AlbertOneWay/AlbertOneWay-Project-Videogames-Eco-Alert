@@ -9,6 +9,11 @@ using Cursor = UnityEngine.Cursor; // Asegúrate de importar si usas TextMeshPro
 
 public class TrashSortingMinigame : MonoBehaviour
 {
+    
+    [Header("🔊 Sonidos del minijuego")]
+    public AudioClip correctSound;
+    public AudioClip wrongSound;
+    
     [Header("Posición donde aparece la basura")]
     public Transform spawnPoint;
 
@@ -96,6 +101,7 @@ public class TrashSortingMinigame : MonoBehaviour
         {
             GameManager.AddScore(10);
             ShowFloatingPoints(10); // ✅ Animación positiva
+            AudioManager.Instance.PlaySFX2D(correctSound);
             GameManager.collectedTrash.Remove(trash);
             StartCoroutine(NextTrashWithDelay(0.3f));
         }
@@ -103,6 +109,7 @@ public class TrashSortingMinigame : MonoBehaviour
         {
             GameManager.AddScore(-10);
             ShowFloatingPoints(-10); // ❌ Animación negativa
+            AudioManager.Instance.PlaySFX2D(wrongSound);
         }
     }
 
@@ -118,6 +125,7 @@ public class TrashSortingMinigame : MonoBehaviour
     
     public void ReturnToLobby()
     {
+        AudioManager.Instance.PlayUI(UISFXType.Click);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         SceneLoader.Instance.LoadSceneAsync("Lobby");
