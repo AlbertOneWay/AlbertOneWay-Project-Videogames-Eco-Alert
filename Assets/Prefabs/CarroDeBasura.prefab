@@ -66,6 +66,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e49344e4086bb94f96c33e37e7c7332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxCapacity: 10
+  dustVFXPrefab: {fileID: 1037864198121816, guid: 638c8ca438a11c54987de876e500ed02, type: 3}
+  vfxSpawnPoint: {fileID: 6215306066587010076}
 --- !u!1 &4742250016737984870
 GameObject:
   m_ObjectHideFlags: 0
@@ -100,6 +103,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 711191325513417919}
+  - {fileID: 6215306066587010076}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -76.236}
 --- !u!33 &7157438093355561019
@@ -203,3 +207,34 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!1 &7127432036594379148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6215306066587010076}
+  m_Layer: 9
+  m_Name: vfxspawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6215306066587010076
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7127432036594379148}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: -0.00195, z: 0.00998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 732297597024114953}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

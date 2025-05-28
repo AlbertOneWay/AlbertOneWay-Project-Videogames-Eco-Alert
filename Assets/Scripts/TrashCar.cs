@@ -7,6 +7,10 @@ public class TrashCart : MonoBehaviour
 
     private int currentTrashCount = 0;
     
+    public GameObject dustVFXPrefab;
+    public Transform vfxSpawnPoint; // punto donde se instanciará, opcional
+
+    
     void Start()
     {
         if (GameManager.HasUpgrade("cart_capacity"))
@@ -26,6 +30,14 @@ public class TrashCart : MonoBehaviour
                 currentTrashCount++;
                 Destroy(trash.gameObject);
                 Debug.Log("Basura recogida. Total: " + currentTrashCount + "/" + maxCapacity);
+
+                // Instanciar el VFX
+                if (dustVFXPrefab != null)
+                {
+                    Vector3 spawnPosition = vfxSpawnPoint != null ? vfxSpawnPoint.position : transform.position + Vector3.up * 1f;
+                    GameObject vfx = Instantiate(dustVFXPrefab, spawnPosition, Quaternion.identity);
+                    Destroy(vfx, 2f); // destruir el VFX después de 2 segundos
+                }
             }
             else
             {
