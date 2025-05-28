@@ -48,5 +48,5 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 9139193275813097656}
   patrolPoints: []
-  minSpawnInterval: 120
-  maxSpawnInterval: 180
+  minSpawnInterval: 10
+  maxSpawnInterval: 30
